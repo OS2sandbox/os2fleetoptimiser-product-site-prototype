@@ -1,11 +1,12 @@
 <!-- Banner -->
-<section id="banner">
-	<div class="inner">
-		<h2>Spectral</h2>
-		<p>Another fine responsive<br /> site template freebie<br /> crafted by <a href="http://html5up.net">HTML5 UP</a>.</p>
-		<ul class="actions">
-			<li><a href="#" class="button special">Activate</a></li>
-		</ul>
-	</div>
-	<a href="#one" class="more scrolly">Learn More</a>
+
+<section id="banner" style="background-image: url('{{ page.banner_background }}'); background-size: cover; background-position: center;">
+  <div class="inner">
+    <h2>{{ page.banner_heading }}</h2>
+    <p>{{ page.banner_text | markdownify }}</p>
+    <ul class="actions">
+      <li><a href="{{ page.banner_button_link }}" class="button special">{{ page.banner_button_text }}</a></li>
+    </ul>
+  </div>
+  <a href="#one" class="more scrolly">Learn More</a>
 </section>

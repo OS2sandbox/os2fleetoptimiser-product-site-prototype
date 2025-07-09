@@ -1,5 +1,12 @@
 ---
 layout: default
 title: Home
-description: Another fine responsive<br />site template freebie<br />crafted by <a href="http://html5up.net">HTML5 UP</a>.
+banner_heading: OS²Product
+banner_background: https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg
+banner_text: >
+  An Open Source project code-stewarded
+  by the OS² community
+
+banner_button_text: Read More
+banner_button_link: "#one"
 ---
