@@ -25,6 +25,7 @@
                     background-image: url('{% if page.image contains '://' %}{{ page.image }}{% elsif site.featured-image-source %}{{ site.featured-image-source | append: page.image | absolute_url }}{% else %}{{ '/assets/images/' | append: page.image | absolute_url }}{% endif %}');
                     background-size: cover;
                     background-position: center;
+                    background-attachment: fixed;
                     filter: brightness({{ page.image_brightness | default: 0.5 }});
                     z-index: 0;">
                 </div>
