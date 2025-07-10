@@ -1,25 +1,37 @@
 # This manifest defines:
-# - A PersistentVolumeClaim for shared storage between containers and vscode (or another IDE icoul)
-# - A Pod running Jekyll, mounting the shared storage
+# - A Pod running Jekyll
+# - A bind-mounted volume from the host system for sharing content with the container
+# - SELinux relabeling to ensure Podman can access the bind mount securely
 
-# Jekyll Pod
 apiVersion: v1
 kind: Pod
 metadata:
   name: jekyll
+  annotations:
+    # This annotation is required by Podman to apply SELinux relabeling to the bind mount path.
+    # It ensures the container can access the host directory securely under SELinux policies.
+    # IMPORTANT: Update this path if you clone this repo and use a different local directory.
+    io.containers.selinux.mount: "/home/jmk/Repositories/spectral-jekyll-theme"
 spec:
   volumes:
-    - name: jekyll-shared
+    - name: jekyll-shared-spectral
       hostPath:
         path: /home/jmk/Repositories/spectral-jekyll-theme
         type: Directory
-        selinuxRelabel: "shared"
+        # This tells Podman to apply a shared SELinux label to the directory.
+        # Use "shared" if multiple containers need access to the same label.
+        # Use "private" if you want isolation.
+        selinuxRelabel: "private"
   containers:
     - name: jekyll
       image: ghcr.io/bretfisher/jekyll-serve:latest
       ports:
         - containerPort: 4000
           hostPort: 4000
+          # NOTE: If running multiple Jekyll pods, make sure each uses a unique hostPort
+          # to avoid conflicts (e.g., 4001, 4002, etc.)
       volumeMounts:
         - mountPath: /site
-          name: jekyll-shared
+          name: jekyll-shared-spectral
+          # This mounts the host directory into the container at /site
+          # Jekyll will serve content from this path
