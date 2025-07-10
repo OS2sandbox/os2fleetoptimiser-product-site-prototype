@@ -14,10 +14,15 @@
 
     <!-- Main -->
     <article id="main">
-        <header{% if page.image %} style="background-image: url('{% if site.featured-image-source %}{{ page.image | prepend: site.featured-image-source | absolute_url }}{% else %}{{ "" | absolute_url }}/assets/images/{{ page.image }}{% endif %}');"{% endif %}>
+        <header
+            {% if page.image %}
+                style="background-image: url('{% if page.image contains '://' %}{{ page.image }}{% elsif site.featured-image-source %}{{ site.featured-image-source | append: page.image | absolute_url }}{% else %}{{ '/assets/images/' | append: page.image | absolute_url }}{% endif %}'); background-size: cover; background-position: center;"
+            {% endif %}
+>
             <h2>{{ page.title }}</h2>
             <p>{{ page.description }}</p>
         </header>
+
         <section class="wrapper style5">
             <div class="inner">
 

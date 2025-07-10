@@ -1,5 +1,6 @@
 # Site settings
-title: Spectral
+
+title: OS²Product
 email: youremailaddress@gmail.com
 description: The Jekyll version of the Spectral theme by HTML5 UP.
 baseurl: ""
@@ -12,6 +13,13 @@ url: "http://localhost:4000"
 # Homepage tiles
 tiles-source: posts # accepts "posts" or "pages"
 tiles-count: 3
+
+defaults:
+  - scope:
+      path: "content"
+      type: "pages"
+    values:
+      permalink: /
 
 # Misc settings
 featured-image-source:

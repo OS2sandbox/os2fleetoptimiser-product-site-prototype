@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Home
-permalink: /
 banner_heading: OS²Product
 banner_background: https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg
 banner_text: >

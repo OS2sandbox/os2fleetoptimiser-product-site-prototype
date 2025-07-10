@@ -1,20 +1,15 @@
 <!-- Banner -->
 
-<section id="banner" class="banner-section">
-  <style>
-    .banner-section {
-      background-image: url('{% if page.banner_background contains "://" %}{{ page.banner_background }}{% else %}{{ site.baseurl }}/{{ page.banner_background | remove_first: "/" }}{% endif %}');
-      background-size: cover;
-      background-position: center;
-    }
-  </style>
-  <div class="inner">
+{% if page.banner_background contains "://" %}
+  {% assign banner_bg_final = page.banner_background %}
 {% else %}
-  {% assign banner_bg_final = site.baseurl | append: "/" | append: banner_bg_url | remove_first: "/" %}
+  {% assign banner_bg_final = site.baseurl | append: "/" | append: page.banner_background | remove_first: "/" %}
 {% endif %}
 
 <section id="banner"
+  class="banner-section"
   style="background-image: url('{{ banner_bg_final }}'); background-size: cover; background-position: center;">
+  
   <div class="inner">
     <h2>{{ page.banner_heading }}</h2>
     <p>{{ page.banner_text | markdownify }}</p>
@@ -22,5 +17,6 @@
       <li><a href="{{ page.banner_button_link }}" class="button special">{{ page.banner_button_text }}</a></li>
     </ul>
   </div>
+
   <a href="#one" class="more scrolly">Learn More</a>
 </section>
