@@ -1,6 +1,7 @@
 ---
 title: "An Open Source product that delivers the right business value"
 description: "Protect you data and be digitally souvereign with OS²Product"
+permalink: /section-one/
 background_color: "teal"
 icons:
   - name: "fa-lock"
