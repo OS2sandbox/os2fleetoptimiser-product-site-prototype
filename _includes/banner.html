@@ -1,6 +1,20 @@
 <!-- Banner -->
 
-<section id="banner" style="background-image: url('{{ page.banner_background }}'); background-size: cover; background-position: center;">
+<section id="banner" class="banner-section">
+  <style>
+    .banner-section {
+      background-image: url('{% if page.banner_background contains "://" %}{{ page.banner_background }}{% else %}{{ site.baseurl }}/{{ page.banner_background | remove_first: "/" }}{% endif %}');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+  <div class="inner">
+{% else %}
+  {% assign banner_bg_final = site.baseurl | append: "/" | append: banner_bg_url | remove_first: "/" %}
+{% endif %}
+
+<section id="banner"
+  style="background-image: url('{{ banner_bg_final }}'); background-size: cover; background-position: center;">
   <div class="inner">
     <h2>{{ page.banner_heading }}</h2>
     <p>{{ page.banner_text | markdownify }}</p>
