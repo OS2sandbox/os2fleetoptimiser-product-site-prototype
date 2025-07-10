@@ -6,8 +6,8 @@ baseurl: ""
 url: "http://localhost:4000"
 
 # Uncomment the lines below if you are deploying to GitHub Pages
-#baseurl: "/spectral-jekyll-theme" # the subpath of your site, e.g. /blog
-#url: "https://janhalen.github.io" # the base hostname & protocol for your site
+#baseurl: "/spectral-jekyll-theme" 
+#url: "https://janhalen.github.io" 
 
 # Homepage tiles
 tiles-source: posts # accepts "posts" or "pages"
