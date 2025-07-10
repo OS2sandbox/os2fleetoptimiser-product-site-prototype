@@ -25,6 +25,10 @@ spec:
   containers:
     - name: jekyll
       image: ghcr.io/bretfisher/jekyll-serve:latest
+      # The command below tells Jekyll to merge _config.yml (main settings)
+      # and _config.local.yml (local overrides) when serving the site.
+      # This allows you to keep most settings in one file and override only what's needed for local dev.
+      command: ["jekyll", "serve", "--config", "_config.yml,_config.local.yml"]
       ports:
         - containerPort: 4000
           hostPort: 4000
@@ -33,5 +37,3 @@ spec:
       volumeMounts:
         - mountPath: /site
           name: jekyll-shared-spectral
-          # This mounts the host directory into the container at /site
-          # Jekyll will serve content from this path

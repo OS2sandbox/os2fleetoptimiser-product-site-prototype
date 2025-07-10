@@ -1,0 +1,8 @@
+# This file contains only local overrides for Jekyll settings.
+# It is used together with _config.yml when running locally.
+# The two lines below ensure that:
+# - baseurl: "" disables the subpath, so local asset and link paths work without a prefix.
+# - url: "http://localhost:4000" sets the site URL for local development.
+# All other settings are inherited from _config.yml.
+baseurl: ""
+url: "http://localhost:4000"
