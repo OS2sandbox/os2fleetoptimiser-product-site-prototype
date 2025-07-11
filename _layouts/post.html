@@ -26,7 +26,7 @@
                     background-size: cover;
                     background-position: center;
                     background-attachment: fixed;
-                    filter: brightness({{ page.image_brightness | default: 0.5 }});
+                    filter: brightness({{ page.image_brightness | default: 0.7 }});
                     z-index: 0;">
                 </div>
                     <a href="{{ credit_url }}" target="_blank" title="Image credit on Pexels" style="
@@ -59,6 +59,7 @@
     </article>
 
     {% include footer.html %}
+    {% include mermaid-init.html %}
 
 </body>
 </html>
