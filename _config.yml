@@ -3,12 +3,12 @@
 title: OS²Product
 email: youremailaddress@gmail.com
 description: The Jekyll version of the Spectral theme by HTML5 UP.
-#baseurl: ""
-#url: "http://localhost:4000"
+baseurl: ""
+url: "http://localhost:4000"
 
 # Uncomment the lines below if you are deploying to GitHub Pages
-baseurl: "/spectral-jekyll-theme" 
-url: "https://janhalen.github.io" 
+# baseurl: "/spectral-jekyll-theme" 
+# url: "https://janhalen.github.io" 
 
 # Homepage tiles
 tiles-source: posts # accepts "posts" or "pages"

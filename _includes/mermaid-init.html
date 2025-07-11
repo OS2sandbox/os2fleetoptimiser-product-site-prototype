@@ -1,0 +1,13 @@
+https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const blocks = document.querySelectorAll("pre code.language-mermaid");
+    blocks.forEach(block => {
+      const container = document.createElement("div");
+      container.className = "mermaid";
+      container.textContent = block.textContent;
+      block.parentElement.replaceWith(container);
+    });
+    mermaid.initialize({ startOnLoad: true });
+  });
+</script>
